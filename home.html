@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thinali - Order Delicious Food Online</title>
+  <style>
+    /* ---------- GLOBAL STYLES ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #fffaf3;
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ---------- HEADER ---------- */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #ff914d;
+      padding: 15px 40px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      color: white;
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ffe9d6;
+    }
+
+    .nav-btns {
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav-btns a {
+      background: white;
+      color: #ff7518;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 20px;
+      border: none;
+      transition: all 0.3s;
+    }
+
+    .nav-btns a:hover {
+      background: #ff7518;
+      color: white;
+    }
+
+    /* ---------- HERO SECTION ---------- */
+    .hero {
+      background: url('bg img.avif') center/cover no-repeat;
+      height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+    }
+
+    .hero-content a {
+      background-color: #ff914d;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .hero-content a:hover {
+      background-color: #ff7518;
+    }
+
+    /* ---------- CATEGORIES ---------- */
+    .categories {
+      padding: 60px 40px;
+      background-color: #fff;
+      text-align: center;
+    }
+
+    .categories h2 {
+      font-size: 2rem;
+      color: #ff7518;
+      margin-bottom: 40px;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .category-card {
+      display: block;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .category-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .category-card h3 {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    /* ---------- FEATURED DISHES ---------- */
+    .featured {
+      padding: 60px 40px;
+      background-color: #fffaf3;
+      text-align: center;
+    }
+
+    .featured h2 {
+      font-size: 2rem;
+      color: #ff7518;
+      margin-bottom: 40px;
+    }
+
+    .food-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .food-card {
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .food-card:hover {
+      transform: scale(1.03);
+    }
+
+    .food-card img {
+      height: 180px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .food-card h3 {
+      font-size: 1.1rem;
+      margin: 15px 0 5px;
+      color: #333;
+    }
+
+    .food-card p {
+      color: #777;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+
+    .food-card span {
+      display: block;
+      font-weight: 600;
+      color: #ff7518;
+      margin-bottom: 10px;
+    }
+
+    .food-card a {
+      display: inline-block;
+      background-color: #ff914d;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      margin-bottom: 15px;
+      transition: background 0.3s;
+    }
+
+    .food-card a:hover {
+      background-color: #ff7518;
+    }
+
+    /* ---------- ABOUT SECTION ---------- */
+    .about {
+      padding: 60px 40px;
+      background-color: #fff;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .about img {
+      flex: 1 1 400px;
+      border-radius: 15px;
+    }
+
+    .about-text {
+      flex: 1 1 400px;
+    }
+
+    .about-text h2 {
+      color: #ff7518;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      line-height: 1.7;
+      color: #555;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background-color: #ff7518;
+      color: white;
+      text-align: center;
+      padding: 25px 10px;
+      font-size: 0.95rem;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #ffe9d6;
+      font-weight: 500;
+      margin-left: 10px;
+    }
+
+    /* ---------- FLOATING CART ---------- */
+    .cart-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #ff7518;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 28px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background 0.3s;
+      z-index: 200;
+    }
+
+    .cart-btn:hover {
+      background: #ff914d;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      background: white;
+      color: #ff7518;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 50%;
+      padding: 3px 8px;
+      border: 2px solid #ff7518;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .hero-content h2 {
+        font-size: 2rem;
+      }
+      .about {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <h1>Thinali</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#featured">Featured</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- LOGIN & SIGNUP BUTTONS -->
+    <div class="nav-btns">
+      <a href="login.html">Login</a>
+      <a href="signup.html">Sign Up</a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h2>Delicious Food Delivered To You</h2>
+      <p>Order your favorite meals from Thinali and enjoy fast delivery at your doorstep.</p>
+      <a href="#featured">Order Now</a>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="categories" id="categories">
+    <h2>Popular Categories</h2>
+    <div class="category-grid">
+      <a href="biryanis.html" class="category-card">
+        <img src="all biryanies img.jpeg" alt="Biryani" />
+        <h3>Biryani</h3>
+      </a>
+      <a href="pizzas.html" class="category-card">
+        <img src="all pizzas img.jpeg" alt="Pizza" />
+        <h3>Pizza</h3>
+      </a>
+      <a href="burgers.html" class="category-card">
+        <img src="all burgers img.jpg" alt="Burger" />
+        <h3>Burger</h3>
+      </a>
+      <a href="desserts.html" class="category-card">
+        <img src="all desserts img.jpg" alt="Desserts" />
+        <h3>Desserts</h3>
+      </a>
+    </div>
+  </section>
+
+  <!-- FEATURED DISHES -->
+  <section class="featured" id="featured">
+    <h2>Featured Dishes</h2>
+    <div class="food-grid">
+      <div class="food-card">
+        <img src="chicken biryani img.jpg" alt="Chicken Biryani" />
+        <h3>Chicken Biryani</h3>
+        <p>Spicy and flavorful Hyderabadi biryani with tender chicken pieces.</p>
+        <span>₹249</span>
+        <a href="#" class="add-to-cart">Add to Cart</a>
+      </div>
+
+      <div class="food-card">
+        <img src="margherita pizza img.jpeg" alt="Margherita Pizza" />
+        <h3>Margherita Pizza</h3>
+        <p>Classic Italian pizza with mozzarella, basil, and tomato sauce.</p>
+        <span>₹199</span>
+        <a href="#" class="add-to-cart">Add to Cart</a>
+      </div>
+
+      <div class="food-card">
+        <img src="cheese burger img.avif" alt="Cheese Burger" />
+        <h3>Cheese Burger</h3>
+        <p>Juicy beef patty with melted cheese and fresh veggies.</p>
+        <span>₹149</span>
+        <a href="#" class="add-to-cart">Add to Cart</a>
+      </div>
+
+      <div class="food-card">
+        <img src="chocolate cake img.avif" alt="Chocolate Cake" />
+        <h3>Chocolate Cake</h3>
+        <p>Rich and moist chocolate cake topped with creamy frosting.</p>
+        <span>₹99</span>
+        <a href="#" class="add-to-cart">Add to Cart</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="about" id="about">
+    <img src="about thinali img.avif" alt="About Thinali" />
+    <div class="about-text">
+      <h2>About Thinali</h2>
+      <p>
+        Thinali is a fast-growing online food delivery platform dedicated to bringing your favorite meals right to your door. 
+        Whether it's a quick snack or a grand dinner, we connect you with the best restaurants in your area. 
+        Our mission is to make food ordering simple, enjoyable, and accessible to everyone.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <p>© 2025 Thinali. All Rights Reserved. | Made with ❤️ by Thinali Team</p>
+    <p>Follow us:
+      <a href="#">Instagram</a> |
+      <a href="#">Facebook</a> |
+      <a href="#">Twitter</a>
+    </p>
+  </footer>
+
+  <!-- FLOATING CART BUTTON -->
+  <button class="cart-btn" id="cartBtn">🛒<span class="cart-count" id="cartCount">0</span></button>
+
+  <!-- SCRIPT -->
+  <script>
+    let cartCount = 0;
+
+    document.querySelectorAll(".add-to-cart").forEach(button => {
+      button.addEventListener("click", e => {
+        e.preventDefault();
+        cartCount++;
+        document.getElementById("cartCount").textContent = cartCount;
+      });
+    });
+
+    // Click cart to view items (demo)
+    document.getElementById("cartBtn").addEventListener("click", () => {
+      alert(`You have ${cartCount} item(s) in your cart.`);
+    });
+  </script>
+</body>
+</html>

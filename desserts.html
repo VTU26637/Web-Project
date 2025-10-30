@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thinali | Desserts</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ff914d, #ff7518);
+      min-height: 100vh;
+      padding: 40px;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      color: #fff;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      color: #fff;
+      font-size: 1.1rem;
+    }
+
+    .dessert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .dessert-card {
+      background-color: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .dessert-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    }
+
+    .dessert-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .dessert-info {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .dessert-info h3 {
+      color: #ff7518;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    .dessert-info p {
+      color: #777;
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .order-btn {
+      display: inline-block;
+      background-color: #ff7518;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-decoration: none;
+    }
+
+    .order-btn:hover {
+      background-color: #ff914d;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🍨 Thinali Desserts</h1>
+    <p>Sweet treats to complete your meal in style!</p>
+  </header>
+
+  <section class="dessert-grid">
+    <div class="dessert-card">
+      <img src="chocolate cake img.avif" alt="Chocolate Cake">
+      <div class="dessert-info">
+        <h3>Chocolate Cake</h3>
+        <p>Rich, moist chocolate cake with creamy frosting.</p>
+        <div class="price">₹149</div>
+        <a href="#" class="order-btn">Order Now</a>
+      </div>
+    </div>
+
+    <div class="dessert-card">
+      <img src="ice cream sundae img.jpg" alt="Ice Cream Sundae">
+      <div class="dessert-info">
+        <h3>Ice Cream Sundae</h3>
+        <p>Vanilla, chocolate, and strawberry scoops with toppings.</p>
+        <div class="price">₹129</div>
+        <a href="#" class="order-btn">Order Now</a>
+      </div>
+    </div>
+
+    <div class="dessert-card">
+      <img src="chocolate brownie.jpeg" alt="Chocolate Brownie">
+      <div class="dessert-info">
+        <h3>Chocolate Brownie</h3>
+        <p>Fudgy, soft brownies topped with melted chocolate.</p>
+        <div class="price">₹99</div>
+        <a href="#" class="order-btn">Order Now</a>
+      </div>
+    </div>
+
+    <div class="dessert-card">
+      <img src="gulab jamun img.jpeg" alt="Gulab Jamun">
+      <div class="dessert-info">
+        <h3>Gulab Jamun</h3>
+        <p>Soft, syrup-soaked delights that melt in your mouth.</p>
+        <div class="price">₹79</div>
+        <a href="#" class="order-btn">Order Now</a>
+      </div>
+    </div>
+
+    <div class="dessert-card">
+      <img src="classic cheesecake img.jpeg" alt="Cheesecake">
+      <div class="dessert-info">
+        <h3>Classic Cheesecake</h3>
+        <p>Creamy, smooth cheesecake with a buttery crust.</p>
+        <div class="price">₹169</div>
+        <a href="#" class="order-btn">Order Now</a>
+      </div>
+    </div>
+
+    <div class="dessert-card">
+      <img src="Rasmalai img.jpeg" alt="Rasmalai">
+      <div class="dessert-info">
+        <h3>Rasmalai</h3>
+        <p>Soft paneer soaked in sweetened saffron milk.</p>
+        <div class="price">₹89</div>
+        <a href="#" class="order-btn">Order Now</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Thinali. All Rights Reserved.
+  </footer>
+</body>
+</html>

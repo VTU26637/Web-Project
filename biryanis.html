@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thinali | Biryani Varieties</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background-color: orange;
+      color: #333;
+      padding: 20px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    header h1 {
+      color: white;
+      font-size: 2.5rem;
+    }
+    .food-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap: 25px;
+    }
+    .food-card {
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .food-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .food-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .food-card .card-content {
+      padding: 15px;
+    }
+    .food-card .card-content h3 {
+      font-size: 1.3rem;
+      color: #333;
+      margin-bottom: 8px;
+    }
+    .food-card .card-content p {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 12px;
+    }
+    .food-card .card-content span.price {
+      display: block;
+      font-weight: 600;
+      color: #ff7518;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+    .food-card .card-content a.order-btn {
+      display: inline-block;
+      background-color: #ff914d;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .food-card .card-content a.order-btn:hover {
+      background-color: #ff7518;
+    }
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Biryani Varieties</h1>
+    <p style="color: white;font-size:0.95rem;">Choose your favourite from our selection of delicious biryanis.</p>
+  </header>
+
+  <section class="food-grid">
+    <!-- Example card 1 -->
+    <div class="food-card">
+      <img src="hyderabadi biryani.jpeg" alt="Hyderabadi Biryani">
+      <div class="card-content">
+        <h3>Hyderabadi Biryani</h3>
+        <p>Rich and aromatic dum-cooked biryani with saffron and fried onions.</p>
+        <span class="price">₹249</span>
+        <a href="#" class="order-btn">Order Now</a>
+      </div>
+    </div>
+
+    <!-- Example card 2 -->
+    <div class="food-card">
+      <img src="lucknow biryani img.jpeg" alt="Lucknowi (Awadhi) Biryani">
+      <div class="card-content">
+        <h3>Lucknowi (Awadhi) Biryani</h3>
+        <p>Subtly spiced, layered biryani from the royal kitchens of Lucknow.</p>
+        <span class="price">₹269</span>
+        <a href="#" class="order-btn">Order Now</a>
+      </div>
+    </div>
+
+    <!-- Example card 3 -->
+    <div class="food-card">
+      <img src="kolkata biryani img.jpeg" alt="Kolkata Biryani">
+      <div class="card-content">
+        <h3>Kolkata Biryani</h3>
+        <p>A lighter style with potatoes and boiled eggs, fragrant and mild.</p>
+        <span class="price">₹229</span>
+        <a href="#" class="order-btn">Order Now</a>
+      </div>
+    </div>
+
+    <!-- Example card 4 -->
+    <div class="food-card">
+      <img src="malabar biryani img.jpeg" alt="Malabar Biryani">
+      <div class="card-content">
+        <h3>Malabar Biryani</h3>
+        <p>From Kerala coast — fragrant rice, cashews, raisins, and subtle spices.</p>
+        <span class="price">₹259</span>
+        <a href="#" class="order-btn">Order Now</a>
+      </div>
+    </div>
+
+    <!-- Add more cards similarly -->
+  </section>
+
+</body>
+</html>
